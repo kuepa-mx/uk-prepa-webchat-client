@@ -130,15 +130,15 @@ export const Transcript = (props: TranscriptProps) => {
             <Box {...progressStyles}>
               <Text as="span" fontSize="fontSize20" lineHeight="lineHeight10">
                 {" "}
-                Download
+                Descargar
               </Text>
               {isGeneratingTranscript ? (
                 <Text as="span" fontSize="fontSize10" fontWeight="fontWeightLight" color="colorTextWeak">
-                  Generating transcript...
+                  Generando transcripción...
                 </Text>
               ) : (
                 <Text as="span" fontSize="fontSize10" fontWeight="fontWeightLight" color="colorTextWeak">
-                  Downloading transcript...
+                  Descargando transcripción...
                 </Text>
               )}
             </Box>
@@ -160,21 +160,21 @@ export const Transcript = (props: TranscriptProps) => {
               <Box {...progressStyles}>
                 <Text as="span" fontSize="fontSize20" lineHeight="lineHeight10">
                   {" "}
-                  Send to my email
+                  Enviar a mi correo
                 </Text>
                 {isGeneratingTranscript ? (
                   <Text as="span" fontSize="fontSize10" fontWeight="fontWeightLight" color="colorTextWeak">
-                    Generating transcript...
+                    Generando transcripción...
                   </Text>
                 ) : (
                   <Text as="span" fontSize="fontSize10" fontWeight="fontWeightLight" color="colorTextWeak">
-                    Sending transcript...
+                    Descargando transcripción...
                   </Text>
                 )}
               </Box>
             </Box>
           ) : (
-            <span>Send to my email</span>
+            <span>Enviar a mi correo</span>
           )}
         </Button>
       </Box>

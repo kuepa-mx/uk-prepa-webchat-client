@@ -7,7 +7,7 @@ export const Header = ({ customTitle }: { customTitle?: string }) => {
   return (
     <Box className="dark:bg-clightgray" as="header" {...containerStyles}>
       <Text as="h2" {...titleStyles}>
-        {customTitle || "Live Chat"}
+        {customTitle || "Chat en vivo"}
       </Text>
     </Box>
   );
