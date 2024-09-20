@@ -107,7 +107,7 @@ export const sessionDataHandler = {
     let newTokenData;
 
     try {
-      newTokenData = await contactBackend<Token>("/initWebchat", { formData });
+      newTokenData = await contactBackend<Token>("/webchat/init", { formData });
     } catch (e) {
       throw Error("No results from server");
     }
