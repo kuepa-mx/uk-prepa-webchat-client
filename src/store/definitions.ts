@@ -3,6 +3,7 @@ import { GenericThemeShape } from "@twilio-paste/theme";
 import { AlertVariants } from "@twilio-paste/core/alert";
 
 import { FileAttachmentConfig, TranscriptConfig } from "../definitions";
+import { RequestType } from "../components/PreEngagementFormPhase";
 
 export enum EngagementPhase {
   PreEngagementForm = "PreEngagementForm",
@@ -20,7 +21,7 @@ export type ChatState = {
   conversationState?: string;
 };
 
-export type PreEngagementData = { name: string; email: string; query: string };
+export type PreEngagementData = { name: string; email: string; requestType?: RequestType };
 
 export type SessionState = {
   currentPhase: EngagementPhase;

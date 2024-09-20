@@ -11,10 +11,10 @@ const typeWindow = window as unknown as { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: 
 const composeEnhancers = typeWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
-    chat: ChatReducer,
-    config: ConfigReducer,
-    notifications: NotificationReducer,
-    session: SessionReducer
+  chat: ChatReducer,
+  config: ConfigReducer,
+  notifications: NotificationReducer,
+  session: SessionReducer
 });
 
 export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));

@@ -1,18 +1,37 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CustomizationProvider, CustomizationProviderProps } from "@twilio-paste/core/customization";
-import { CSSProperties, FC, useEffect } from "react";
+import { CSSProperties, FC, useEffect, useState } from "react";
 
 import { RootContainer } from "./RootContainer";
-import { AppState, EngagementPhase } from "../store/definitions";
+import { EngagementPhase } from "../store/definitions";
 import { sessionDataHandler } from "../sessionDataHandler";
 import { initSession } from "../store/actions/initActions";
 import { changeEngagementPhase } from "../store/actions/genericActions";
+import light from "../themes/light";
+import dark from "../themes/dark";
 
 const AnyCustomizationProvider: FC<CustomizationProviderProps & { style: CSSProperties }> = CustomizationProvider;
 
 export function WebchatWidget() {
-  const theme = useSelector((state: AppState) => state.config.theme);
   const dispatch = useDispatch();
+  const [selectedTheme, setSelectedTheme] = useState<"default" | "dark">(() =>
+    localStorage.getItem("theme") === "dark" ? "dark" : "default"
+  );
+  const themes = {
+    default: light,
+    dark
+  };
+
+  useEffect(() => {
+    const storageListener = () => {
+      setSelectedTheme(localStorage.getItem("theme") === "dark" ? "dark" : "default");
+    };
+    window.addEventListener("storage", storageListener);
+
+    return () => {
+      window.removeEventListener("storage", storageListener);
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     const data = sessionDataHandler.tryResumeExistingSession();
@@ -31,24 +50,38 @@ export function WebchatWidget() {
 
   return (
     <AnyCustomizationProvider
-      baseTheme={theme?.isLight ? "default" : "dark"}
-      theme={theme?.overrides}
+      baseTheme="default"
+      theme={themes[selectedTheme]}
       elements={{
         MESSAGE_INPUT: {
           boxShadow: "none!important" as "none"
         },
         MESSAGE_INPUT_BOX: {
           display: "inline-block",
-          boxShadow: "none"
+          boxShadow: "none",
+          backgroundColor: "none"
         },
         ALERT: {
           paddingTop: "space30",
-          paddingBottom: "space30"
+          paddingBottom: "space30",
+          color: "colorTextInverse",
+          backgroundColor: "colorBackgroundError"
         },
         BUTTON: {
+          marginTop: "auto",
+          alignSelf: "flex-end",
           "&[aria-disabled='true'][color='colorTextLink']": {
             color: "colorTextLinkWeak"
           }
+        },
+        SELECT: {
+          color: "colorText",
+          border: "initial",
+          boxShadow: "shadowBorder",
+          borderRadius: "borderRadius10"
+        },
+        OPTION: {
+          backgroundColor: "colorBackground"
         }
       }}
       style={{ minHeight: "100%", minWidth: "100%" }}

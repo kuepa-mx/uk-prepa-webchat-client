@@ -30,7 +30,7 @@ export function RootContainer() {
     <Box>
       <Box {...outerContainerStyles}>
         {expanded && (
-          <Box data-test="root-container" {...innerContainerStyles}>
+          <Box className="h-full" data-test="root-container" {...innerContainerStyles}>
             {getPhaseComponent(currentPhase)}
           </Box>
         )}

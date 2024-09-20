@@ -8,11 +8,13 @@ import { sessionDataHandler } from "./sessionDataHandler";
 import { initConfig } from "./store/actions/initActions";
 import { ConfigState } from "./store/definitions";
 import { initLogger } from "./logger";
+import light from "./themes/light";
 
 const defaultConfig: ConfigState = {
   serverUrl: "http://localhost:3001",
   theme: {
-    isLight: true
+    isLight: true,
+    overrides: light
   },
   fileAttachment: {
     enabled: true,
