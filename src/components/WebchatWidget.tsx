@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { CustomizationProvider, CustomizationProviderProps } from "@twilio-paste/core/customization";
-import { CSSProperties, FC, useEffect, useState } from "react";
+import { CSSProperties, FC, useCallback, useEffect, useState } from "react";
 
 import { RootContainer } from "./RootContainer";
 import { EngagementPhase } from "../store/definitions";
@@ -14,9 +14,8 @@ const AnyCustomizationProvider: FC<CustomizationProviderProps & { style: CSSProp
 
 export function WebchatWidget() {
   const dispatch = useDispatch();
-  const [selectedTheme, setSelectedTheme] = useState<"default" | "dark">(() =>
-    localStorage.getItem("theme") === "dark" ? "dark" : "default"
-  );
+  const getLocalStorageTheme = useCallback(() => (localStorage.getItem("theme") === "dark" ? "dark" : "default"), []);
+  const [selectedTheme, setSelectedTheme] = useState<"default" | "dark">(getLocalStorageTheme());
   const themes = {
     default: light,
     dark
@@ -24,14 +23,14 @@ export function WebchatWidget() {
 
   useEffect(() => {
     const storageListener = () => {
-      setSelectedTheme(localStorage.getItem("theme") === "dark" ? "dark" : "default");
+      setSelectedTheme(getLocalStorageTheme());
     };
     window.addEventListener("storage", storageListener);
 
     return () => {
       window.removeEventListener("storage", storageListener);
     };
-  }, [dispatch]);
+  }, [dispatch, getLocalStorageTheme]);
 
   useEffect(() => {
     const data = sessionDataHandler.tryResumeExistingSession();
