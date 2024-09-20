@@ -12,7 +12,7 @@ import {
 const initialState: SessionState = {
   currentPhase: EngagementPhase.Loading,
   expanded: false,
-  preEngagementData: { name: "", requestType: "subject", email: "" }
+  preEngagementData: { name: "", requestType: "subject", email: "", webchatType: "prepa" }
 };
 
 export const SessionReducer: Reducer<SessionState, AnyAction> = (

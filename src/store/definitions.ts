@@ -21,7 +21,7 @@ export type ChatState = {
   conversationState?: string;
 };
 
-export type PreEngagementData = { name: string; email: string; requestType?: RequestType };
+export type PreEngagementData = { name: string; email: string; requestType?: RequestType; webchatType: "prepa" };
 
 export type SessionState = {
   currentPhase: EngagementPhase;
