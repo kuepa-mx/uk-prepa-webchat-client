@@ -4,7 +4,7 @@ import { Token } from "./definitions";
 
 const LOCAL_STORAGE_ITEM_ID = "TWILIO_WEBCHAT_WIDGET";
 
-let _endpoint = "";
+let _endpoint = process.env.REACT_APP_SERVER_URL ?? "";
 
 export async function contactBackend<T>(endpointRoute: string, body: Record<string, unknown> = {}): Promise<T> {
   const response = await fetch(_endpoint + endpointRoute, {
