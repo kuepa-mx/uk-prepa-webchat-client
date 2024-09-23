@@ -30,7 +30,7 @@ export const MessagingCanvasPhase = () => {
     axios
       .post(`${process.env.REACT_APP_SERVER_URL}/webchat/close`, { conversationSid: conversation.sid })
       .catch((error) => {
-        console.error(`Error al termiar conversación. Error: ${error?.message}`);
+        console.error(`Error al finalizar conversación. Error: ${error?.message}`);
       });
   }, [conversation]);
 
