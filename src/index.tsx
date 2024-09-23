@@ -11,7 +11,7 @@ import { initLogger } from "./logger";
 import light from "./themes/light";
 
 const defaultConfig: ConfigState = {
-  serverUrl: "http://localhost:3001",
+  serverUrl: process.env.REACT_APP_SERVER_URL,
   theme: {
     isLight: true,
     overrides: light

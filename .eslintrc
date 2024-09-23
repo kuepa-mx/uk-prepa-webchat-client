@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "twilio-ts",
-    "twilio-react",
-    "prettier"
-  ],
+  "extends": ["twilio-ts", "twilio-react", "prettier"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -20,7 +16,7 @@
       }
     ],
     "complexity": "off",
-    "react/display-name" : "off",
+    "react/display-name": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
@@ -28,7 +24,7 @@
     "sonarjs/cognitive-complexity": "off",
     "sonarjs/no-small-switch": "off",
     "no-shadow": "off",
-    "no-console": "warn",
+    "no-console": "off",
     "no-duplicate-imports": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-floating-promises": "off",
