@@ -32,7 +32,7 @@ export const MessagingCanvasPhase = () => {
       .catch((error) => {
         console.error(`Error al finalizar conversación. Error: ${error?.message}`);
       });
-  }, [conversation]);
+  }, [conversation?.sid]);
 
   return (
     <Wrapper>
