@@ -77,7 +77,7 @@ export const sessionDataHandler = {
     const storedTokenData = getStoredSessionData();
 
     if (!storedTokenData) {
-      throw Error("Can't update token: current token doesn't exist");
+      throw Error("No se puede refrescar token. El token actual no existe");
     }
 
     let newTokenData: Token;
@@ -87,7 +87,7 @@ export const sessionDataHandler = {
         token: storedTokenData.token
       });
     } catch (e) {
-      throw Error(`Something went wrong when trying to get an updated token: ${e}`);
+      throw Error(`Ocurrio un error al tratar de refrescar el token: ${e}`);
     }
 
     // Server won't return a conversation SID, so we merge the existing data with the latest one
@@ -102,14 +102,14 @@ export const sessionDataHandler = {
   },
 
   fetchAndStoreNewSession: async ({ formData }: { formData: Record<string, unknown> }) => {
-    log.debug("sessionDataHandler: trying to create new session");
+    log.debug("sessionDataHandler: Intentando crear nueva sesion");
 
     let newTokenData;
 
     try {
       newTokenData = await contactBackend<Token>("/webchat/init", { formData });
     } catch (e) {
-      throw Error("No results from server");
+      throw Error("El servidor no responde");
     }
 
     log.debug("sessionDataHandler: new session successfully created");

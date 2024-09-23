@@ -19,9 +19,9 @@ export const EntryPoint = () => {
       {...containerStyles}
     >
       {expanded ? (
-        <ChevronDownIcon color="colorTextInverse" decorative={false} title="Minimize chat" size="sizeIcon80" />
+        <ChevronDownIcon decorative={false} title="Minimizar Chat" size="sizeIcon80" />
       ) : (
-        <ChatIcon color="colorTextInverse" decorative={false} title="Open chat" size="sizeIcon60" />
+        <ChatIcon decorative={false} title="Abrir Chat" size="sizeIcon60" />
       )}
     </Box>
   );

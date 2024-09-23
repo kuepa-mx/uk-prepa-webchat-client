@@ -22,5 +22,6 @@ export const introStyles: TextStyleProps = {
 export const fieldStyles: BoxStyleProps = {
   marginBottom: "space70",
   color: "colorTextInverse",
-  backgroundColor: "colorBackground"
+  backgroundColor: "colorBackground",
+  borderColor: "colorBorder"
 };

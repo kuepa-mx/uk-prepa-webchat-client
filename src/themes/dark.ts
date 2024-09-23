@@ -19,10 +19,11 @@ export default {
     colorBackgroundError: "rgb(155 84 84)"
   },
   borderColors: {
-    colorBorder: "rgb(203, 213, 225)"
+    colorBorder: "rgb(32, 44, 51)",
+    colorBorderPrimary: "rgb(32, 44, 51)"
   },
   shadows: {
-    shadowBorder: "0 0 0 1px rgb(71, 85, 105)",
-    shadowBorderPrimary: "rgb(71, 85, 105)"
+    shadowBorder: "0 0 0 1px rgb(32, 44, 51)",
+    shadowBorderPrimary: "rgb(32, 44, 51)"
   }
 } as Partial<GenericThemeShape>;

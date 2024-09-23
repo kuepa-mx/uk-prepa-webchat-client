@@ -69,6 +69,9 @@ export function WebchatWidget() {
         BUTTON: {
           marginTop: "auto",
           alignSelf: "flex-end",
+          ":hover *": {
+            color: "colorTextInverse"
+          },
           "&[aria-disabled='true'][color='colorTextLink']": {
             color: "colorTextLinkWeak"
           }

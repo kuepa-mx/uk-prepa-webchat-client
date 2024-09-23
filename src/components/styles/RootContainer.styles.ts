@@ -6,7 +6,8 @@ export const outerContainerStyles: BoxStyleProps = {
   right: "space60",
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-end"
+  alignItems: "flex-end",
+  zIndex: "zIndex50"
 };
 
 export const innerContainerStyles: BoxStyleProps = {
@@ -17,5 +18,7 @@ export const innerContainerStyles: BoxStyleProps = {
   height: "500px",
   marginBottom: "space50",
   borderRadius: "borderRadius30",
+  borderWidth: "borderWidth10",
+  borderColor: "colorBorder",
   backgroundColor: "colorBackground"
 };

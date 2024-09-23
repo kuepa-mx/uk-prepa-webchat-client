@@ -10,13 +10,17 @@ export const containerStyles: BoxStyleProps = {
   fontSize: "fontSize50",
   alignItems: "center",
   justifyContent: "center",
+  borderStyle: "solid",
   borderRadius: "borderRadiusCircle",
+  borderColor: "colorBorder",
+  borderWidth: "borderWidth10",
   cursor: "pointer",
   transition: "background-color 0.2s",
   outline: "0px",
   padding: "space0",
   _hover: {
-    backgroundColor: "colorBackgroundPrimaryStronger"
+    backgroundColor: "colorBackgroundPrimaryStronger",
+    color: "colorTextInverse"
   },
   _focusVisible: {
     backgroundColor: "colorBackgroundPrimaryStronger",
