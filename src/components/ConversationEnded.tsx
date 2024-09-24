@@ -5,7 +5,7 @@ import { Button } from "@twilio-paste/core/button";
 import { useDispatch, useSelector } from "react-redux";
 
 import { sessionDataHandler } from "../sessionDataHandler";
-import { changeEngagementPhase, updatePreEngagementData } from "../store/actions/genericActions";
+import { changeEngagementPhase } from "../store/actions/genericActions";
 import { EngagementPhase, AppState } from "../store/definitions";
 import { containerStyles, textStyles, titleStyles } from "./styles/ConversationEnded.styles";
 import type { Transcript } from "./Transcript";
