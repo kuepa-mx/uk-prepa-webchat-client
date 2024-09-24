@@ -4,8 +4,7 @@ import { Text } from "@twilio-paste/core/text";
 import { Button } from "@twilio-paste/core/button";
 import { useDispatch, useSelector } from "react-redux";
 
-import { sessionDataHandler } from "../sessionDataHandler";
-import { changeEngagementPhase } from "../store/actions/genericActions";
+import { changeEngagementPhase, updatePreEngagementData } from "../store/actions/genericActions";
 import { EngagementPhase, AppState } from "../store/definitions";
 import { containerStyles, textStyles, titleStyles } from "./styles/ConversationEnded.styles";
 import type { Transcript } from "./Transcript";
@@ -20,7 +19,8 @@ export const ConversationEnded = () => {
   }));
 
   const handleStartNewChat = () => {
-    sessionDataHandler.clear();
+    // sessionDataHandler.clear();
+    dispatch(updatePreEngagementData({ requestType: "subject" }));
     dispatch(changeEngagementPhase({ phase: EngagementPhase.PreEngagementForm }));
   };
 
