@@ -8,6 +8,7 @@ import { changeEngagementPhase, updatePreEngagementData } from "../store/actions
 import { EngagementPhase, AppState } from "../store/definitions";
 import { containerStyles, textStyles, titleStyles } from "./styles/ConversationEnded.styles";
 import type { Transcript } from "./Transcript";
+import { sessionDataHandler } from "../sessionDataHandler";
 
 export const ConversationEnded = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const ConversationEnded = () => {
   }));
 
   const handleStartNewChat = () => {
-    // sessionDataHandler.clear();
+    sessionDataHandler.clear();
     dispatch(updatePreEngagementData({ requestType: "subject" }));
     dispatch(changeEngagementPhase({ phase: EngagementPhase.PreEngagementForm }));
   };
@@ -51,7 +52,7 @@ export const ConversationEnded = () => {
         Si tienes mas consultas, no dudes en contactarnos de nuevo
       </Text>
       <Button variant="primary" data-test="start-new-chat-button" onClick={handleStartNewChat}>
-        Empezar nueva conversación
+        Nueva conversación
       </Button>
     </Box>
   );
